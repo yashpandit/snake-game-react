@@ -34,3 +34,13 @@
   margin: 20px 100px;
   font-size: 24px;
 }
+
+.startButton {
+  margin: 100px 120px;
+  width: 200px;
+  height: 80px;
+  background-color: blueviolet;
+  color: #fff;
+  padding: 10px;
+  font-size: 24px;
+}

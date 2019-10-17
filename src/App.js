@@ -182,10 +182,12 @@ class App extends Component{
   render() {
     return (
       (!this.state.isStartGame) 
-        ? <button onClick={this.onStartGame}>Start Game</button>
-        : <div className="container">
+        ? <div className = "container">
+            <button onClick = {this.onStartGame} className = "startButton">Start Game</button>
+          </div>
+        : <div className = "container">
             <Score score = {this.state.score} />
-            <div className="wall">
+            <div className = "wall">
               <Snake snakePosition = {this.state.snakePosition} />
               <Food foodPosition = {this.state.foodPosition} />
             </div>
