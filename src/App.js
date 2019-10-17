@@ -30,11 +30,14 @@ const initialState = {
 }
 
 let interval;
+let highScore = 0;
+
 class App extends Component{
 
   state = initialState;
 
   componentDidUpdate() {
+    this.updateHighScore();
     this.onWallCollision();
     this.onSelfCollision();
     this.onEat();
@@ -148,6 +151,14 @@ class App extends Component{
   }
 
   /**
+   * updates the high score
+   */
+  updateHighScore = () => {
+    let {score} = this.state;
+    if (score > highScore) highScore = score;
+  }
+
+  /**
    * increase the snake length
    */
   growSnake = () => {
@@ -188,7 +199,9 @@ class App extends Component{
               className = "startButton">Start Game</button>
           </div>
         : <div className = "container">
-            <Score score = {this.state.score} />
+            <Score 
+              score = {this.state.score}
+              highScore = {highScore} />
             <div className = "wall">
               <Snake snakePosition = {this.state.snakePosition} />
               <Food foodPosition = {this.state.foodPosition} />
