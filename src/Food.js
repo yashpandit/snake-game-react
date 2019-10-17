@@ -2,15 +2,11 @@ import React from 'react';
 
 export default (props) => {
 
-    const style = {
+    const pos = {
         left: `${props.foodPosition[0]}%`,
         top: `${props.foodPosition[1]}%`
     }
 
-    return (
-        <div className="food" style={style}>
-
-        </div>
-    );
+    return <div className = "food" style = {pos}></div>;
     
 }

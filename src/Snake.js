@@ -3,14 +3,12 @@ import React from 'react';
 export default (props) => {
     return (
         <div>
-            {props.snakePosition.map((dots, idx) => {
-                const style = {
-                    left: `${dots[0]}%`,
-                    top: `${dots[1]}%`
+            {props.snakePosition.map((position, idx) => {
+                const pos = {
+                    left: `${position[0]}%`,
+                    top: `${position[1]}%`
                 }
-                return (
-                    <div className="snake" key={idx} style={style}></div>
-                )
+                return <div className = "snake" key = {idx} style = {pos}></div>;
             })}
         </div>
     )
