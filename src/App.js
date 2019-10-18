@@ -50,16 +50,24 @@ class App extends Component{
     e = e || window.event;
     switch(e.keyCode) {
       case 37:
-        this.setState({ direction: 'LEFT' });
+        this.setState((prevState, props) => {
+          return (prevState.direction === 'RIGHT') ? { direction: 'RIGHT' } : { direction: 'LEFT' }
+        });
         break;
       case 38:
-        this.setState({ direction: 'UP' });
+        this.setState((prevState, props) => {
+          return (prevState.direction === 'DOWN') ? { direction: 'DOWN' } : { direction: 'UP' }
+        });
         break;
       case 39:
-        this.setState({ direction: 'RIGHT' });
+        this.setState((prevState, props) => {
+          return (prevState.direction === 'LEFT') ? { direction: 'LEFT' } : { direction: 'RIGHT' }
+        });
         break;
       case 40:
-        this.setState({ direction: 'DOWN' });
+        this.setState((prevState, props) => {
+          return (prevState.direction === 'UP') ? { direction: 'UP' } : { direction: 'DOWN' }
+        });
         break;
       default:
         break;
