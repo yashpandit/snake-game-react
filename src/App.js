@@ -20,7 +20,7 @@ const getRandomFoodPosition = () => {
 const initialState = {
   foodPosition: getRandomFoodPosition(),
   isStartGame: false,
-  highScore: localStorage.highScore,
+  highScore: localStorage.getItem("highScore"),
   score: 0,
   speed: 200,
   direction: 'RIGHT',
@@ -161,7 +161,7 @@ class App extends Component{
    * updates the high score
    */
   updateHighScore = () => {
-    if (this.state.score > localStorage.highScore) {
+    if (this.state.score > localStorage.getItem("highScore")) {
       localStorage.setItem("highScore", this.state.score);
       this.setState({
         highScore: this.state.score
