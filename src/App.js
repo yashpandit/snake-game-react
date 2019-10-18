@@ -30,7 +30,7 @@ const initialState = {
 }
 
 let interval;
-let highScore = 0;
+let highScore = (localStorage.getItem("highScore")) ? localStorage.getItem("highScore") : 0;
 
 class App extends Component{
 
@@ -146,7 +146,6 @@ class App extends Component{
         score: this.state.score + 1
       });
       this.growSnake();
-      this.increaseSpeed();
     }
   }
 
@@ -155,7 +154,10 @@ class App extends Component{
    */
   updateHighScore = () => {
     let {score} = this.state;
-    if (score > highScore) highScore = score;
+    if (score > highScore) {
+      highScore = score;
+      localStorage.highScore = highScore;
+    }
   }
 
   /**
@@ -167,18 +169,6 @@ class App extends Component{
     this.setState({
       snakePosition: snake
     });
-  }
-
-  /**
-   * increase the speed of the snake
-   */
-  increaseSpeed = () => {
-    let { speed } = this.state;
-    if (speed > 10) {
-      this.setState({
-        speed: speed - 10
-      })
-    }
   }
 
   /**
